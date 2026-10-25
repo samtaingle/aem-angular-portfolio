@@ -2,7 +2,7 @@
 
 An Angular 16 frontend that renders content from an AEM-style JSON page model, with the AEM component source and Maven content packages alongside it.
 
-![Screenshot](docs/screenshot.png)
+![Screenshot](docsscreenshot.png)
 
 ## What it demonstrates
 - Angular consuming a JSON page model through a service, with a configurable mock or AEM content source
