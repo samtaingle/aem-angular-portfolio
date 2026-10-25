@@ -21,20 +21,32 @@ export interface AemPageModel {
   providedIn: 'root'
 })
 export class PageContentService {
-  private readonly mockUrl = '/assets/homepage-model.json';
-
-  private readonly aemUrl =
-    `${environment.aemBaseUrl}/content/my-project/en.model.json`;
+  private readonly mockUrl = '/api/page-model';
 
   constructor(private http: HttpClient) {}
 
   getPageModel(): Observable<AemPageModel> {
-    const url = environment.contentSource === 'aem'
-      ? this.aemUrl
-      : this.mockUrl;
+    if (environment.contentSource === 'aem') {
+      const baseUrl = environment.aemBaseUrl.trim();
 
-    return this.http.get<unknown>(url).pipe(
-      map((data) => this.validatePageModel(data))
+      if (!baseUrl) {
+        return throwError(
+          () => new Error(
+            'AEM is selected, but aemBaseUrl is not configured.'
+          )
+        );
+      }
+
+      const aemUrl =
+        `${baseUrl.replace(/\/+$/, '')}/content/my-project/en.model.json`;
+
+      return this.http.get<unknown>(aemUrl).pipe(
+        map(data => this.validatePageModel(data))
+      );
+    }
+
+    return this.http.get<unknown>(this.mockUrl).pipe(
+      map(data => this.validatePageModel(data))
     );
   }
 
@@ -68,6 +80,7 @@ export class PageContentService {
 
       if (
         card &&
+        typeof card[':type'] === 'string' &&
         typeof card.cardTitle === 'string' &&
         typeof card.cardDesc === 'string'
       ) {

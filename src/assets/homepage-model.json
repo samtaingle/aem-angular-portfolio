@@ -3,6 +3,7 @@
   ":path": "/content/my-project/en",
   "title": "Welcome to My Company",
   "root": {
+    ":type": "wcm/foundation/components/responsivegrid",
     ":items": {
       "card1": {
         ":type": "my-project/components/custom-card",
@@ -20,6 +21,14 @@
         "cardDesc": "Create responsive and accessible digital experiences."
       }
     },
-    ":itemsOrder": ["card1", "card2", "card3"]
-  }
+    ":itemsOrder": [
+      "card1",
+      "card2",
+      "card3"
+    ],
+    ":children": {}
+  },
+  ":items": {},
+  ":itemsOrder": [],
+  ":children": {}
 }

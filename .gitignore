@@ -1,4 +1,4 @@
-﻿node_modules/
+node_modules/
 dist/
 .angular/
 coverage/
@@ -10,3 +10,12 @@ coverage/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Local logs and temporary files
+*.log
+npm-debug.log*
+*.tmp
+
+# Local secrets and certificates
+*.pem
+*.key

@@ -23,17 +23,28 @@
     <p>There are currently no cards to display.</p>
   </section>
 
-  <section
-    class="card-grid"
-    *ngIf="!loading && !error && cards.length > 0"
-    aria-label="Featured content">
+<section
+  class="card-grid"
+  *ngIf="!loading && !error && cards.length > 0"
+  aria-label="Featured content">
+
+  <ng-container *ngFor="let card of cards">
     <app-content-card
-      *ngFor="let card of cards"
+      *ngIf="isSupported(card[':type'])"
       [title]="card.cardTitle"
       [description]="card.cardDesc"
       [componentType]="card[':type']">
     </app-content-card>
-  </section>
+
+    <article
+      class="unsupported-card"
+      *ngIf="!isSupported(card[':type'])">
+      <h2>Unsupported component</h2>
+      <p>This content type has no Angular component mapping yet.</p>
+      <small>{{ card[':type'] }}</small>
+    </article>
+  </ng-container>
+</section>
 
   <footer class="page-footer">
     <p>Demo project · Angular frontend with an AEM-style JSON content model</p>

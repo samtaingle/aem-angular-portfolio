@@ -1,5 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { PageContentService, AemCard } from './services/page-content.service';
+import { ComponentMapperService } from './services/component-mapper.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,10 @@ export class AppComponent implements OnInit {
   loading = true;
   error = '';
 
-  constructor(private pageContent: PageContentService) {}
+  constructor(
+    private pageContent: PageContentService,
+    private componentMapper: ComponentMapperService
+  ) {}
 
   ngOnInit(): void {
     this.loadContent();
@@ -20,6 +24,10 @@ export class AppComponent implements OnInit {
 
   reloadContent(): void {
     this.loadContent();
+  }
+
+  isSupported(resourceType: string): boolean {
+    return this.componentMapper.isSupported(resourceType);
   }
 
   private loadContent(): void {
