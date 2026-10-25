@@ -1,61 +1,36 @@
-# AEM + Angular Portfolio Project
+# AEM + Angular Portfolio
 
-## Overview
+An Angular 16 frontend that renders content from an AEM-style JSON page model, with the AEM component source and Maven content packages alongside it.
 
-A portfolio project demonstrating an Angular frontend that consumes an AEM-style JSON page model, alongside AEM component and content package source files.
+![Screenshot](docs/screenshot.png)
 
-## Technologies
+## What it demonstrates
+- Angular consuming a JSON page model through a service, with a configurable mock or AEM content source
+- A reusable content-card component with loading, empty and error states and a retry action
+- A custom AEM Card component with an authoring dialog (title, description) and an HTL template
+- AEM content packaging with Maven and FileVault (`ui.apps`, `ui.content`, `all`)
 
-- Angular 16 and TypeScript
-- HTML, SCSS, and RxJS
-- REST-style HTTP content loading
-- Adobe Experience Manager (AEM) component concepts
-- HTL (HTML Template Language)
-- Maven and FileVault content packages
+## Tech stack
+Angular 16, TypeScript, RxJS, SCSS, AEM, HTL, Maven, FileVault
 
-## Angular Features
+## Run locally
+Angular app (uses the mock model at `src/assets/homepage-model.json`):
 
-- JSON-driven page title and card content
-- Reusable Angular content-card component
-- Loading, empty, and error states
-- Retry action for content-loading failures
-- Responsive layout and accessible status messages
-- Configurable mock or AEM content source
+    npx ng serve
 
-## AEM Source
+Open http://localhost:4200.
 
-- Custom Card component
-- Authoring dialog for card title and description
-- HTL component template
-- AEM content page structure
-- Maven modules: `ui.apps`, `ui.content`, and `all`
+AEM packages:
 
-## Run Locally
+    mvn clean package
 
-From the project root, start the Angular application:
+ZIP packages are generated in each module's `target` directory.
 
-```powershell
-npx ng serve
-```
+## Project structure
+- `src/` Angular application
+- `ui.apps/` AEM Card component, dialog and HTL
+- `ui.content/` AEM content structure
+- `all/` combined content package
 
-Open `http://localhost:4200`.
-
-The default configuration uses the local JSON file at `src/assets/homepage-model.json`.
-
-To build the AEM packages, run:
-
-```powershell
-mvn clean package
-```
-
-Generated ZIP packages are available under each module's `target` directory.
-
-## Important Limitations
-
-This project has been built locally. The Angular mock content has been tested in the local application, and Maven package generation succeeds. Installation and end-to-end integration with a running AEM instance have not yet been verified.
-
-The production AEM endpoint and page component implementation must be configured and tested against an actual AEM environment before claiming a live integration.
-
-## Interview Topics
-
-Be prepared to explain Angular services, HTTP requests, reusable components, `@Input`, JSON content models, AEM components and dialogs, HTL, FileVault packages, and the difference between mock content and live AEM delivery.
+## Status
+The Angular app is tested locally against mock content, and the Maven packages build successfully. Deployment to a running AEM instance is the next step.
