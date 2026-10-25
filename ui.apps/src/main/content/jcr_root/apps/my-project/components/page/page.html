@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html lang="en"
+      data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${currentPage.title}</title>
+    <meta name="description" content="${currentPage.title}">
+    <sly data-sly-call="${clientlib.css @ categories='my-project.site'}"></sly>
+</head>
+<body>
+    <main class="page-content">
+        <h1>${currentPage.title}</h1>
+        <div data-sly-resource="${'root' @ resourceType='wcm/foundation/components/responsivegrid'}"></div>
+    </main>
+    <sly data-sly-call="${clientlib.js @ categories='my-project.site'}"></sly>
+</body>
+</html>

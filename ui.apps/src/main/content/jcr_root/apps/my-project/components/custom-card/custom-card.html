@@ -1,7 +1,7 @@
-﻿<div class="custom-card">
-    <div class="custom-card__accent"></div>
+﻿<article class="custom-card">
+    <div class="custom-card__accent" aria-hidden="true"></div>
     <div class="custom-card__content">
-        <h2>${properties.cardTitle}</h2>
-        <p>${properties.cardDesc}</p>
+        <h2>${properties.cardTitle || 'Untitled card'}</h2>
+        <p>${properties.cardDesc || 'No description has been added yet.'}</p>
     </div>
-</div>
+</article>
