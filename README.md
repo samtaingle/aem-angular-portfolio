@@ -2,7 +2,7 @@
 
 An Angular 16 frontend that renders content from an AEM-style JSON page model, with the AEM component source and Maven content packages alongside it.
 
-![Screenshot](docsscreenshot.png)
+![Angular card view rendering the mock page model](docs/screenshot.png)
 
 ## What it demonstrates
 - Angular consuming a JSON page model through a service, with a configurable mock or AEM content source
@@ -37,4 +37,6 @@ ZIP packages are generated in each module's `target` directory.
 - `all/` combined content package
 
 ## Status
-The Angular app is tested locally against mock content, and the Maven packages build successfully. Deployment to a running AEM instance is the next step.
+The Angular app is tested locally against mock content, and the Maven packages build successfully. Deployment to a running AEM instance has not been verified yet.
+
+Next step: install the `all` package on a local AEM SDK author instance, then point the Angular service at the page's `.model.json` endpoint instead of the mock file.
