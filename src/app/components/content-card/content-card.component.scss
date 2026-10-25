@@ -1,0 +1,49 @@
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.content-card {
+  height: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.content-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+}
+
+.card-accent {
+  height: 5px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+}
+
+.card-content {
+  padding: 24px;
+}
+
+.component-label {
+  margin: 0 0 14px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  overflow-wrap: anywhere;
+}
+
+h2 {
+  margin: 0 0 12px;
+  color: #0f172a;
+  font-size: 21px;
+}
+
+.description {
+  margin: 0;
+  color: #475569;
+  line-height: 1.7;
+}

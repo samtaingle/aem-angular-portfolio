@@ -1,27 +1,61 @@
-# MyAemAngularPortfolio
+# AEM + Angular Portfolio Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+## Overview
 
-## Development server
+A portfolio project demonstrating an Angular frontend that consumes an AEM-style JSON page model, alongside AEM component and content package source files.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technologies
 
-## Code scaffolding
+- Angular 16 and TypeScript
+- HTML, SCSS, and RxJS
+- REST-style HTTP content loading
+- Adobe Experience Manager (AEM) component concepts
+- HTL (HTML Template Language)
+- Maven and FileVault content packages
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Angular Features
 
-## Build
+- JSON-driven page title and card content
+- Reusable Angular content-card component
+- Loading, empty, and error states
+- Retry action for content-loading failures
+- Responsive layout and accessible status messages
+- Configurable mock or AEM content source
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## AEM Source
 
-## Running unit tests
+- Custom Card component
+- Authoring dialog for card title and description
+- HTL component template
+- AEM content page structure
+- Maven modules: `ui.apps`, `ui.content`, and `all`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Run Locally
 
-## Running end-to-end tests
+From the project root, start the Angular application:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```powershell
+npx ng serve
+```
 
-## Further help
+Open `http://localhost:4200`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The default configuration uses the local JSON file at `src/assets/homepage-model.json`.
+
+To build the AEM packages, run:
+
+```powershell
+mvn clean package
+```
+
+Generated ZIP packages are available under each module's `target` directory.
+
+## Important Limitations
+
+This project has been built locally. The Angular mock content has been tested in the local application, and Maven package generation succeeds. Installation and end-to-end integration with a running AEM instance have not yet been verified.
+
+The production AEM endpoint and page component implementation must be configured and tested against an actual AEM environment before claiming a live integration.
+
+## Interview Topics
+
+Be prepared to explain Angular services, HTTP requests, reusable components, `@Input`, JSON content models, AEM components and dialogs, HTL, FileVault packages, and the difference between mock content and live AEM delivery.

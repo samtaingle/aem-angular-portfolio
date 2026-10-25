@@ -1,0 +1,25 @@
+﻿{
+  ":type": "my-project/components/page",
+  ":path": "/content/my-project/en",
+  "title": "Welcome to My Company",
+  "root": {
+    ":items": {
+      "card1": {
+        ":type": "my-project/components/custom-card",
+        "cardTitle": "Digital Transformation",
+        "cardDesc": "Build modern digital experiences with reusable components."
+      },
+      "card2": {
+        ":type": "my-project/components/custom-card",
+        "cardTitle": "Cloud Solutions",
+        "cardDesc": "Deliver secure and scalable digital solutions."
+      },
+      "card3": {
+        ":type": "my-project/components/custom-card",
+        "cardTitle": "Customer Experience",
+        "cardDesc": "Create responsive and accessible digital experiences."
+      }
+    },
+    ":itemsOrder": ["card1", "card2", "card3"]
+  }
+}
